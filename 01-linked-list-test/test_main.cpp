@@ -139,5 +139,4 @@ TEST_CASE( "Linked List", "[data structure]" )
 			easy_search_test( list, i );
 		}
 	}
-	}
 }
