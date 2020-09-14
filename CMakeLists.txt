@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.17)
 project(project-mother)
 
+add_subdirectory(00-benchmark/01-locality)
 add_subdirectory(00-example-project)
 add_subdirectory(01-linked-list)
 add_subdirectory(01-linked-list-test)
