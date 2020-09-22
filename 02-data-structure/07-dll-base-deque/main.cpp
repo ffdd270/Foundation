@@ -1,6 +1,8 @@
 #include <iostream>
 #include "DLLDeque.h"
 
+using namespace dlldeque;
+
 int main()
 {
     DLLDeque<int> deque;

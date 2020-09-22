@@ -67,6 +67,7 @@ void InsertionSort(T arr[], int n)
 }
 
 #include "../09-useful-heap/UsefulHeap.h"
+using namespace heap;
 
 template <typename T>
 int CompareHighPriority(T d1, T d2)
@@ -217,6 +218,8 @@ void QuickSort(T arr[], int n)
 }
 
 #include "../07-llist-base-queue/LlistBaseQueue.h"
+using namespace llqueue;
+
 constexpr int BUCKET_NUM = 10;
 
 void RadixSort(int arr[], int num, int maxLength)

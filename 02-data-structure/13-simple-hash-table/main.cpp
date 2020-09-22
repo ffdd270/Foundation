@@ -1,6 +1,8 @@
 #include <iostream>
 #include "SimpleHash.h"
 
+using namespace table;
+
 int SimpleHashFunction(int key)
 {
     return key % 100;

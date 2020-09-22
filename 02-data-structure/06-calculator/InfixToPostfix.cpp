@@ -4,7 +4,7 @@
 
 std::string ConvToRPNExp(const std::string& expression)
 {
-    ListStack<char> stack;
+    liststack::ListStack<char> stack;
     std::string convertedExp;
 	
     for(char c : expression)
@@ -24,33 +24,33 @@ std::string ConvToRPNExp(const std::string& expression)
             switch (c)
             {
             case '(':
-                stack.push(c);
+                stack.Push(c);
                 break;
 
             case ')':
                 while("Happy")
                 {
-                    char popOperator = stack.pop();
-                    if(popOperator == '(')
+                    char PopOperator = stack.Pop();
+                    if(PopOperator == '(')
                         break;
 
-                    convertedExp += popOperator;
+                    convertedExp += PopOperator;
                 }
                 break;
 
             case '+' : case '-':
             case '*' : case '/':
-                while(!stack.isEmpty() && WhoPrecOp(stack.peek(), c) >= 0)
-                    convertedExp += stack.pop();
+                while(!stack.IsEmpty() && WhoPrecOp(stack.Peek(), c) >= 0)
+                    convertedExp += stack.Pop();
 
-                stack.push(c);
+                stack.Push(c);
                 break;
             }
         }
     }
 
-    while (!stack.isEmpty())
-        convertedExp += stack.pop();
+    while (!stack.IsEmpty())
+        convertedExp += stack.Pop();
 
     return convertedExp;
 }
@@ -91,42 +91,42 @@ int WhoPrecOp(char op1, char op2)
 
 int EvalRPNExp(const std::string& expression)
 {
-    ListStack<int> stack;
+    liststack::ListStack<int> stack;
     int result = 0;
 
 	for(char c : expression)
 	{
         if('0' <= c && c <= '9')
         {
-            stack.push(c - '0');
+            stack.Push(c - '0');
         }
 
         else
         {
-            int num2 = stack.pop();
-            int num1 = stack.pop();
+            int num2 = stack.Pop();
+            int num1 = stack.Pop();
         	
 	        switch (c)
 	        {
             case '+':
-                stack.push(num1 + num2);
+                stack.Push(num1 + num2);
                 break;
 
             case '-':
-                stack.push(num1 - num2);
+                stack.Push(num1 - num2);
                 break;
 	        	
             case '*':
-                stack.push(num1 * num2);
+                stack.Push(num1 * num2);
                 break;
 	        	
             case '/':
-                stack.push(num1 / num2);
+                stack.Push(num1 / num2);
                 break;
 	        }
         }
 	}
-    return stack.pop();
+    return stack.Pop();
 }
 
 int Calculate(const std::string& expression)

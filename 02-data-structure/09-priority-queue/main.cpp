@@ -14,6 +14,8 @@ int CompareHighPriority(const std::string s1, const std::string s2)
         return -1;
 }
 
+using namespace priorityqueue;
+
 int main()
 {
     PriorityQueue<std::string> dictionary(CompareHighPriority);

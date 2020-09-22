@@ -1,3 +1,4 @@
+#pragma once
 #include "CLLinkedList.h"
 
 typedef int Data;

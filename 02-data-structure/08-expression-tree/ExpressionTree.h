@@ -3,13 +3,16 @@
 #include "../08-binary-tree/BinaryTree.h"
 #include "../06-list-base-stack/ListBaseStack.h"
 
+using namespace btreenode;
+using namespace liststack;
+
 BtreeNode<int>* MakeExpTree(const std::string& exp)
 {
     ListStack<BtreeNode<int>*> stack;
 
     for(char c : exp)
     {
-        BtreeNode<int>* pnode = MakeTreeNdoe<int>();
+        BtreeNode<int>* pnode = MakeBTreeNode<int>();
 
         if('0' <= c && c <= '9')
         {
@@ -17,15 +20,15 @@ BtreeNode<int>* MakeExpTree(const std::string& exp)
         }
         else
         {
-            MakeRightSubTree(pnode, stack.pop());
-            MakeLeftSubTree(pnode, stack.pop());
+            MakeRightSubTree(pnode, stack.Pop());
+            MakeLeftSubTree(pnode, stack.Pop());
             SetData(pnode, static_cast<int>(c));
         }
 
-        stack.push(pnode);
+        stack.Push(pnode);
     }
 
-    return stack.pop();
+    return stack.Pop();
 }
 
 void ShowNodeData(int data)

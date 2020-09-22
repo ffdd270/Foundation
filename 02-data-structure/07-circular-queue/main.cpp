@@ -2,6 +2,8 @@
 
 #include "CircularQueue.h"
 
+using namespace cqueue;
+
 int main()
 {
     CQueue<int> queue;

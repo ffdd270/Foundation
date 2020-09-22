@@ -1,6 +1,8 @@
 #include <iostream>
 #include "DoubleLinkedList.h"
 
+using namespace dllist;
+
 int main()
 {
     DLList<int> list;
@@ -11,10 +13,10 @@ int main()
     list.Insert(7);
     list.Insert(9);
 
-    int* i = new int;
-    list.First(i);
+    int i;
+    list.First(&i);
 
-    std::cout << *i;
+    std::cout << i;
 
     return 0;
 }

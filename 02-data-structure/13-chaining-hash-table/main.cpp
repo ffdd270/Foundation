@@ -2,6 +2,8 @@
 #include "ChainingHash.h"
 #include "StudentInfo.h"
 
+using namespace table;
+
 int SimpleHashFunction(int key)
 {
     return key % 100;

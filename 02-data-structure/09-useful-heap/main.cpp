@@ -7,6 +7,8 @@ int CompareHighPriority(char d1, char d2)
     return d2 - d1;
 }
 
+using namespace heap;
+
 int main()
 {
     Heap<char> heap(CompareHighPriority);

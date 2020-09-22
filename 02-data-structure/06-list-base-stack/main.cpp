@@ -1,17 +1,19 @@
 #include <iostream>
 #include "ListBaseStack.h"
 
+using namespace liststack;
+
 int main()
 {
     ListStack<int> stack;
 
-    stack.push(1); stack.push(2);
-    stack.push(3); stack.push(4);
-    stack.push(5); stack.push(6);
+    stack.Push(1); stack.Push(2);
+    stack.Push(3); stack.Push(4);
+    stack.Push(5); stack.Push(6);
 
-    while (!stack.isEmpty())
+    while (!stack.IsEmpty())
     {
-        std::cout << stack.pop() << " ";
+        std::cout << stack.Pop() << " ";
     }
 
     return 0;

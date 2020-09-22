@@ -1,6 +1,7 @@
 #include <iostream>
-
 #include "LlistBaseQueue.h"
+
+using namespace llqueue;
 
 int main()
 {

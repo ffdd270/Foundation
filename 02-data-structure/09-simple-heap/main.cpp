@@ -1,6 +1,8 @@
 #include <iostream>
 #include "SimpleHeap.h"
 
+using namespace heap;
+
 int main()
 {
     Heap<char> heap;

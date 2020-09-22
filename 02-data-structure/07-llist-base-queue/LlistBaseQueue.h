@@ -1,78 +1,78 @@
 #pragma once
 
-template <typename T>
-struct Node
+namespace llqueue
 {
-    T data;
-    Node* next;
-};
-
-template <typename T>
-class LlQueue
-{
-public:
-    LlQueue() : front(nullptr), rear(nullptr) {}
-
-    bool IsEmpty();
-    void Enqueue(T data);
-    T    Dequeue();
-    T    Peek();
-private:
-    Node<T>* front;
-    Node<T>* rear;
-};
-
-template<typename T>
-bool LlQueue<T>::IsEmpty()
-{
-    return (front == nullptr);
-}
-
-template<typename T>
-void LlQueue<T>::Enqueue(T data)
-{
-    Node<T>* newNode = new Node<T>;
-    newNode->data = data;
-    newNode->next = nullptr;
-
-    if(IsEmpty())
+    template <typename T>
+    struct Node
     {
-        front = newNode;
-        rear = newNode;
-    }
-    else
-    {
-        rear->next = newNode;
-        rear = newNode;
-    }
-}
+        T data;
+        Node* next;
+    };
 
-template<typename T>
-T LlQueue<T>::Dequeue()
-{
-    if(IsEmpty())
+    template <typename T>
+    class LlQueue
     {
-        throw("Queue Memory Error!");
+    public:
+        LlQueue() : front(nullptr), rear(nullptr) {}
+
+        bool IsEmpty();
+        void Enqueue(T data);
+        T    Dequeue();
+        T    Peek();
+    private:
+        Node<T>* front;
+        Node<T>* rear;
+    };
+
+    template<typename T>
+    bool LlQueue<T>::IsEmpty()
+    {
+        return (front == nullptr);
     }
 
-    Node<T>* rnode = front;
-    T rdata = rnode->data;
-    front = front->next;
-
-    delete rnode;
-    return rdata;
-}
-
-template<typename T>
-T LlQueue<T>::Peek()
-{
-    if(IsEmpty())
+    template<typename T>
+    void LlQueue<T>::Enqueue(T data)
     {
-        throw("Queue Memory Error!");
+        Node<T>* newNode = new Node<T>;
+        newNode->data = data;
+        newNode->next = nullptr;
+
+        if(IsEmpty())
+        {
+            front = newNode;
+            rear = newNode;
+        }
+        else
+        {
+            rear->next = newNode;
+            rear = newNode;
+        }
     }
 
-    return front->data;
+    template<typename T>
+    T LlQueue<T>::Dequeue()
+    {
+        if(IsEmpty())
+        {
+            throw("Queue Memory Error!");
+        }
+
+        Node<T>* rnode = front;
+        T rdata = rnode->data;
+        front = front->next;
+
+        delete rnode;
+        return rdata;
+    }
+
+    template<typename T>
+    T LlQueue<T>::Peek()
+    {
+        if(IsEmpty())
+        {
+            throw("Queue Memory Error!");
+        }
+
+        return front->data;
+    }
 }
-
-
-

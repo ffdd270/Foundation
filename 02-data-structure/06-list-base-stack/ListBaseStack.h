@@ -1,25 +1,39 @@
 #pragma once
 #include <iostream>
 
-template <typename T>
-struct Node
+namespace liststack
 {
-    T data;
-    Node* next;
-};
+    template <typename T>
+    struct Node
+    {
+        T data;
+        Node* next;
+    };
 
-template <typename T>
-class ListStack
-{
-public:
-    ListStack() : head(nullptr) {} ;
+    template <typename T>
+    class ListStack
+    {
+    public:
+        ListStack() : head(nullptr) {}
 
-    bool isEmpty()
+        bool IsEmpty();
+
+        void Push(T data);
+        T Pop();
+        T Peek();
+
+    private:
+        Node<T>* head;
+    };
+
+    template<typename T>
+    bool ListStack<T>::IsEmpty()
     {
         return (head == nullptr);
     }
 
-    void push(T data)
+    template<typename T>
+    void ListStack<T>::Push(T data)
     {
         Node<T>* newNode = new Node<T>;
 
@@ -29,32 +43,31 @@ public:
         head = newNode;
     }
 
-    T pop()
+    template<typename T>
+    T ListStack<T>::Pop()
     {
-        if(isEmpty() == true)
+        if(IsEmpty() == true)
         {
             throw("Stack Memory Error");
         }
 
-         Node<T>* rnode = head;
-         T rdata = head->data;
+        Node<T>* rnode = head;
+        T rdata = head->data;
 
-         head = head->next;
-         delete rnode;
+        head = head->next;
+        delete rnode;
 
-         return rdata;
+        return rdata;
     }
 
-    T peek()
+    template<typename T>
+    T ListStack<T>::Peek()
     {
-        if(isEmpty() == true)
+        if(IsEmpty() == true)
         {
             throw("Stack Memory Error");
         }
 
         return head->data;
     }
-
-private:
-    Node<T>* head;
-};
+}

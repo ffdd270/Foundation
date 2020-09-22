@@ -1,5 +1,5 @@
-#include "BinaryTree.h"
 #include <iostream>
+#include "BinaryTree.h"
 
 template <typename T>
 void CoutNodeData(T data)
@@ -7,14 +7,16 @@ void CoutNodeData(T data)
     std::cout << data << " ";
 }
 
+using namespace btreenode;
+
 int main()
 {
-    BtreeNode<int>* bt1 = MakeTreeNdoe<int>();
-    BtreeNode<int>* bt2 = MakeTreeNdoe<int>();
-    BtreeNode<int>* bt3 = MakeTreeNdoe<int>();
-    BtreeNode<int>* bt4 = MakeTreeNdoe<int>();
-    BtreeNode<int>* bt5 = MakeTreeNdoe<int>();
-    BtreeNode<int>* bt6 = MakeTreeNdoe<int>();
+    BtreeNode<int>* bt1 = MakeBTreeNode<int>();
+    BtreeNode<int>* bt2 = MakeBTreeNode<int>();
+    BtreeNode<int>* bt3 = MakeBTreeNode<int>();
+    BtreeNode<int>* bt4 = MakeBTreeNode<int>();
+    BtreeNode<int>* bt5 = MakeBTreeNode<int>();
+    BtreeNode<int>* bt6 = MakeBTreeNode<int>();
 
     SetData(bt1, 1);
     SetData(bt2, 2);
