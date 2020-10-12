@@ -108,8 +108,6 @@ namespace btreenode
         action(bt->data);
     }
 
-
-
     template <typename T>
     BtreeNode<T>* RemoveLeftSubTree(BtreeNode<T>* bt)
     {

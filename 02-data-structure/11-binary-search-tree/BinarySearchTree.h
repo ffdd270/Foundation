@@ -10,14 +10,13 @@ namespace bstree
     public:
         BSTree();
 
-        void          Insert(T data);
-        BtreeNode<T>* Search(T target);
-        BtreeNode<T>* Remove(T target);
-        void          ShowAll();
+        virtual void          Insert(T data);
+        BtreeNode<T>*         Search(T target);
+        virtual BtreeNode<T>* Remove(T target);
+        void                  ShowAll();
 
         BtreeNode<T>* GetRoot();
-    private:
-
+    protected:
         BtreeNode<T>* root;
         BtreeNode<T>* cur;
     };
