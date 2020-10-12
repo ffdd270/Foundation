@@ -23,6 +23,7 @@ microseconds TestArrayTraversal(int arraySize)
     system_clock::time_point  end = system_clock::now();
     microseconds ms = duration_cast<microseconds>(end - start);
 
+    delete[] test_array;
     return ms;
 }
 

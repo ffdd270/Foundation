@@ -15,6 +15,7 @@ class LinkedList
 {
 public:
 	LinkedList();
+	~LinkedList();
 	LinkedList(std::initializer_list<T> init);
 	
 public:
@@ -52,6 +53,16 @@ private:
 
 template<typename T>
 inline LinkedList<T>::LinkedList() : head(nullptr), tail(nullptr) {}
+
+template<typename T>
+LinkedList<T>::~LinkedList()
+{
+    while(head != nullptr)
+    {
+        Node<T>* delNode = head;
+        remove( delNode );
+    }
+}
 
 template<typename T>
 inline LinkedList<T>::LinkedList(std::initializer_list<T> init) : head(nullptr), tail(nullptr)
@@ -129,6 +140,16 @@ template<typename T>
 				target->next->prev = nullptr;
 			}
 		}
+
+		if(target == head)
+		{
+		    head = head->next;
+		}
+
+		if(target == tail)
+        {
+		    tail = tail->prev;
+        }
 
 		delete target;
 		target = nullptr;
